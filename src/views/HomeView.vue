@@ -1,4 +1,7 @@
 <template>
+  <button @click="changeLang(`GE`)">GE</button>
+  <button @click="changeLang(`EN`)">EN</button>
+
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="ეს არის მთავარი გვერდი" />
@@ -13,6 +16,11 @@ export default {
   name: "HomeView",
   components: {
     HelloWorld,
+  },
+  methods: {
+    changeLang(lang) {
+      this.$store.dispatch(`setLang`, lang);
+    },
   },
 };
 </script>

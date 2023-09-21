@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>ეს არის ჩვენ შესახებ გვერდი</h1>
+    <h1>ეს არის ჩვენ შესახებ გვერდი{{ ena }}</h1>
     <AboutForm @theText="catchtheText" buttonText="click" />
 
     <p>{{ aboutText }}</p>
@@ -9,7 +9,7 @@
 
 <script>
 import AboutForm from "@/components/AboutForm.vue";
-
+import { mapGetters } from "vuex";
 export default {
   components: {
     AboutForm,
@@ -19,7 +19,11 @@ export default {
       aboutText: null,
     };
   },
-
+  computed: {
+    ...mapGetters({
+      ena: `getLang`,
+    }),
+  },
   methods: {
     catchtheText(event) {
       this.aboutText = event;
